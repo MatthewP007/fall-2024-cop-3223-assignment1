@@ -18,10 +18,6 @@
 // defining PI as 3.14159 so that I can use 'PI' instead of having to write out 3.14159 every time.
 #define PI 3.14159
 
-// Declaring all the functions I will be using.
-
-// int main is where I will call all the functions that I created.
-
 
 //The function that will take two coordinates as an input and calculate the distance between the two points
 double calculateDistance() {
@@ -86,6 +82,7 @@ double calculateHeight() {
     return 3.0;  
 }
 
+// int main is where I will call all the functions that I created.
 int main(int argc, char **argv) {
     calculateDistance();
     calculatePerimeter();

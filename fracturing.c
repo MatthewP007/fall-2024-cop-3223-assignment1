@@ -40,11 +40,9 @@ int main(int argc, char **argv) {
 double calculateDistance() {
     double x1, y1, x2, y2;
     static int counter = 0;
-//Using 'scanf' so that I can take in the variables x1, y1, x2, and y2 and assigning the variabnles to values.
-    printf("Enter x1 and x2: ");
+//Using 'scanf' so that I can take in the variables x1, y1, x2, and y2 and assigning the variabnles to values
     scanf("%lf %lf", &x1, &x2);
 
-    printf("Enter y1 and y2: ");
     scanf("%lf %lf", &y1, &y2);
     
     printf("Point #1 entered: x1 = %.2lf; y1 = %.2lf\n", x1, y1);
@@ -86,11 +84,9 @@ double calculateArea() {
 
 double calculateWidth() {
     double x1, x2, y1, y2;
-    
-    printf("Enter x1 and x2: ");
+
     scanf("%lf %lf", &x1, &x2);
 
-    printf("Enter y1 and y2: ");
     scanf("%lf %lf", &y1, &y2);
 
     double width = fabs(x2 - x1);
@@ -102,11 +98,9 @@ double calculateWidth() {
 
 double calculateHeight() {
     double x1, x2, y1, y2;
-    
-    printf("Enter x1 and x2: ");
+
     scanf("%lf %lf", &x1, &x2);
 
-    printf("Enter y1 and y2: ");
     scanf("%lf %lf", &y1, &y2);
     
     double height = fabs(y2 - y1);

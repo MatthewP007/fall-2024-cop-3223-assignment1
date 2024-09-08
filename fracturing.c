@@ -19,22 +19,14 @@
 #define PI 3.14159
 
 // Declaring all the functions I will be using.
-double calculateDistance();
-double calculatePerimeter();
-double calculateArea();
-double calculateWidth();
-double calculateHeight();
+// double calculateDistance();
+// double calculatePerimeter();
+// double calculateArea();
+// double calculateWidth();
+// double calculateHeight();
 
 // int main is where I will call all the functions that I created.
-int main(int argc, char **argv) {
-    calculateDistance();
-    calculatePerimeter();
-    calculateArea();
-    calculateWidth();
-    calculateHeight();
-    
-    return 0;
-}
+
 
 //The function that will take two coordinates as an input and calculate the distance between the two points
 double calculateDistance() {
@@ -97,4 +89,13 @@ double calculateHeight() {
     
 
     return 3.0;  
+}
+int main(int argc, char **argv) {
+    calculateDistance();
+    calculatePerimeter();
+    calculateArea();
+    calculateWidth();
+    calculateHeight();
+    
+    return 0;
 }

@@ -38,7 +38,7 @@ int main(int argc, char **argv) {
 
 //The function that will take two coordinates as an input and calculate the distance between the two points
 double calculateDistance() {
-    double x1, y1, x2, y2;
+    double x1, y1, x2, y2, distance;
     static int counter = 0;
 //Using 'scanf' so that I can take in the variables x1, y1, x2, and y2 and assigning the variabnles to values
     scanf("%lf %lf", &x1, &x2);
@@ -49,7 +49,7 @@ double calculateDistance() {
     printf("Point #2 entered: x2 = %.2lf; y2 = %.2lf\n", x2, y2); 
 
 //Using the distance formula to calculate distance using the points.
-    double distance = sqrt(pow(x2 - x1, 2) + pow(y2 - y1, 2));
+    distance = sqrt(pow(x2 - x1, 2) + pow(y2 - y1, 2));
     if(counter == 0){
     printf("The distance between the two points is %.3lf\n", distance);
     counter++;
@@ -83,13 +83,8 @@ double calculateArea() {
 }
 
 double calculateWidth() {
-    double x1, x2, y1, y2;
 
-    scanf("%lf %lf", &x1, &x2);
-
-    scanf("%lf %lf", &y1, &y2);
-
-    double width = fabs(x2 - x1);
+    double width = calculateDistance();
     printf("The width of the city encompassed by your request is %.3lf\n", width);
     
  
@@ -97,13 +92,7 @@ double calculateWidth() {
 }
 
 double calculateHeight() {
-    double x1, x2, y1, y2;
-
-    scanf("%lf %lf", &x1, &x2);
-
-    scanf("%lf %lf", &y1, &y2);
-    
-    double height = fabs(y2 - y1);
+    double height = calculateDistance();
     printf("The height of the city encompassed by your request is %.3lf\n", height);
     
 

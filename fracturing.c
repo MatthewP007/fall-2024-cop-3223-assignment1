@@ -6,89 +6,101 @@
 // Purpose: This program is to apply the
 // knowledge of using multiple functions
 // in one code and calling those functions in main.
-// Input: the x1 and y1, then the x2 and y2.
+// Input: the x1 and x2, then the y1 and y2.
 //
 // Output: the distance, perimeter, area, width, and height.
 // //********************************************************
 
-//including the libraries so that I can use certain functions like 'pow' and 'sqrt'
 #include <stdio.h>
 #include <math.h>
 
-// defining PI as 3.14159 so that I can use 'PI' instead of having to write out 3.14159 every time.
+// Define constant for PI
 #define PI 3.14159
 
+// Function declarations
+double calculateDistance();
+void printDistance();
+double calculatePerimeter();
+double calculateArea();
+double calculateWidth();
+double calculateHeight();
+void getInput(double* x1, double* x2, double* y1, double* y2);
 
-//The function that will take two coordinates as an input and calculate the distance between the two points
-double calculateDistance() {
-    double x1, y1, x2, y2, distance;
-    static int counter = 0;
-//Using 'scanf' so that I can take in the variables x1, y1, x2, and y2 and assigning the variabnles to values
-    scanf("%lf %lf", &x1, &x2);
-
-    scanf("%lf %lf", &y1, &y2);
-    
-    printf("Point #1 entered: x1 = %.2lf; y1 = %.2lf\n", x1, y1);
-    printf("Point #2 entered: x2 = %.2lf; y2 = %.2lf\n", x2, y2); 
-
-//Using the distance formula to calculate distance using the points.
-    distance = sqrt(pow(x2 - x1, 2) + pow(y2 - y1, 2));
-    if(counter == 0){
-    printf("The distance between the two points is %.3lf\n", distance);
-    counter++;
-    }
-
-    return distance;
-}
-
-//Function to calculate the perimeter using the distance that was calculated earlier.
-double calculatePerimeter() {
-    double distance = calculateDistance(); 
-
-    double perimeter = PI * distance;
-  
-    printf("The perimeter of the city encompassed by your request is %.3lf\n", perimeter);
-    
-
-    return 3.0;  
-}
-
-
-double calculateArea() {
-    double distance = calculateDistance(); 
-    
-    double area =  PI * pow((distance / 2),2);
-    
-    printf("The area of the city encompassed by your request is %.3lf\n", area);
-    
- 
-    return 4.0;  
-}
-
-double calculateWidth() {
-
-    double width = calculateDistance();
-    printf("The width of the city encompassed by your request is %.3lf\n", width);
-    
- 
-    return 2.0; 
-}
-
-double calculateHeight() {
-    double height = calculateDistance();
-    printf("The height of the city encompassed by your request is %.3lf\n", height);
-    
-
-    return 3.0;  
-}
-
-// int main is where I will call all the functions that I created.
 int main(int argc, char **argv) {
-    calculateDistance();
+    printDistance();
     calculatePerimeter();
     calculateArea();
     calculateWidth();
     calculateHeight();
-    
+
     return 0;
+}
+
+// Function to get input for points (x1, x2, y1, y2)
+void getInput(double* x1, double* x2, double* y1, double* y2) {
+    printf("Input x1 and x2: ");
+    scanf("%lf %lf", x1, x2); // Input x1 and x2
+    printf("Input y1 and y2: ");
+    scanf("%lf %lf", y1, y2); // Input y1 and y2
+}
+double calculateDistance(){
+    double x1, x2, y1, y2;
+    getInput(&x1, &x2, &y1, &y2);
+    printf("Point #1 entered: x1 = %.2f, y1 = %.2f\n", x1, y1);
+    printf("Point #2 entered: x2 = %.2f, y2 = %.2f\n", x2, y2);
+
+    double distance = sqrt(pow(x2 - x1, 2) + pow(y2 - y1, 2));
+    return distance;
+}
+
+
+
+// Function to calculate and store the distance between two points
+void printDistance() {
+    
+    double x1, x2, y1, y2,distance;
+    distance = calculateDistance();
+    
+    printf("The distance between the two points is: %.3f\n", distance);
+}
+
+// Function to calculate the perimeter using the stored distance (as diameter)
+double calculatePerimeter() {
+     double x1, x2, y1, y2,distance;
+     distance = calculateDistance();
+    double perimeter = distance * PI ;
+     
+    printf("The perimeter of the circle is: %.3f\n", perimeter);
+    return 3.0;
+}
+
+// Function to calculate the area using the stored distance (as diameter)
+double calculateArea() {
+    double x1, x2, y1, y2,distance;
+    distance = calculateDistance();
+    double radius = distance / 2.0;
+    double area = PI * pow(radius, 2);
+    
+    printf("The area of the circle is: %.3f\n", area);
+    return 2.5;
+}
+
+// Function to calculate the width (difference in x values)
+double calculateWidth() {
+    double x1, x2, y1, y2,distance;
+    distance = calculateDistance();
+    double width = distance;
+    
+    printf("The width is: %.3f\n", width);
+    return 3.5;
+}
+
+// Function to calculate the height (difference in y values)
+double calculateHeight() {
+    double x1, x2, y1, y2,distance;
+    distance = calculateDistance();
+    double height = distance;
+    
+    printf("The height is: %.3f\n", height);
+    return 2.0;
 }
